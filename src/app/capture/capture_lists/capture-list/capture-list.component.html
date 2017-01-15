@@ -1,0 +1,11 @@
+
+<ul class="list-group" dnd-sortable-container="dnd-sortable-container" [sortableData]="cEntryList.cEntries">
+  <li class="list-group-item" dnd-sortable="dnd-sortable" *ngFor="let cEntry of cEntryList.cEntries; let i = index;" [sortableIndex]="i" (onDropSuccess)="onRefresh($event)">
+    {{ cEntry.type }}
+    {{ cEntry.selector}}
+    {{ cEntry.parameters ? '|' : ''}} {{ cEntry.parameters }}
+  </li>
+</ul>
+<div class="list-group json">
+  <pre class="json" [innerHTML]="cEntryList.cEntries | prettyjson:4"></pre>
+</div>

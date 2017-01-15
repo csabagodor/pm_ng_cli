@@ -1,0 +1,12 @@
+.backdrop([ngStyle]="{'display': display}")
+.modal(tabindex='-1', role='dialog', [ngStyle]="{'display': display}")
+	.modal-dialog(role='document')
+		.modal-content
+			.modal-header
+				button.close(type='button', data-dismiss='modal', aria-label='Close', (click)='close()')
+					span(aria-hidden='true') ×
+				h4.modal-title {{error?.title}}
+			.modal-body
+				p {{message}}
+			.modal-footer
+				button.btn.btn-default(type='button', (click)='close()') Close

@@ -1,0 +1,9 @@
+div.db-data
+	ul.list-group
+		li.list-group-item(
+			*ngFor = 'let dbEntry of entries;'
+		)
+			|	{{ dbEntry.type }} {{ dbEntry.selector}} {{ dbEntry.parameters }}
+
+button.btn.btn-primary((click)='onSave()') Save entries
+

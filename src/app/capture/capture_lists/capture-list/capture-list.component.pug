@@ -1,0 +1,13 @@
+ul.list-group(dnd-sortable-container [sortableData]="cEntryList.cEntries")
+	li.list-group-item(
+		dnd-sortable
+		*ngFor = 'let cEntry of cEntryList.cEntries; let i = index;',
+		[sortableIndex] = 'i',
+		(onDropSuccess) = 'onRefresh($event)'
+	)
+		| {{ cEntry.type }}
+		| {{ cEntry.selector}}
+		| {{ cEntry.parameters ? '|' : ''}} {{ cEntry.parameters }}
+
+div.list-group.json
+	pre.json([innerHTML] = 'cEntryList.cEntries | prettyjson:4')
